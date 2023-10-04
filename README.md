@@ -13,6 +13,6 @@ Before the first workshop, each student has to follow these 4 steps:
 
 1. download R base from [R project](https://rstudio.com/products/rstudio/download/) (step 1 of the web link),
 2. download RStudio from [RStudio](https://rstudio.com/products/rstudio/download/) (step 2 of the web link),
-3. download the packages __tidyverse__, __readxl__, __DataExplorer__, __scales__ with the function `install.packages(c("tidyverse", "readxl", "DataExplorer", "scales"))`,
+3. download the packages __tidyverse__, __readxl__, __DataExplorer__, __scales__ with the function `install.packages(c("tidyverse", "readxl", "DataExplorer", "scales", "corrplot"))`,
 4. _(optional)_ download [Excel add-in](https://www.quandl.com/tools/excel) of Quandl.
 
