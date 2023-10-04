@@ -287,6 +287,19 @@ financial returns for the
 Then, I can plug-in this estimate in the formula of the GMV portfolio to
 obtain unbiased estimators of GMV weights.
 
+``` r
+n <- ncol(fin_return_learning)
+T <- nrow(fin_return_learning)
+e <- rep(1, n)
+perio <- 12
+
+Sigma <- cov(fin_return_learning) * (T - 1) / (T - n - 2) * perio
+C <- t(e) %*% solve(Sigma) %*% e
+sigmag <- sqrt(1 / C)
+omega <- 1 / as.numeric(C) * solve(Sigma) %*% e
+barplot(as.numeric(omega), col = 'black')
+```
+
 ![](workshop1_files/figure-gfm/gmv_empirical-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
