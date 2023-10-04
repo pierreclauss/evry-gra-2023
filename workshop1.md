@@ -308,6 +308,9 @@ sample is equal to 9%.
 The realised volatility of the portfolio observed on the backtest sample
 is equal to 17%.
 
+*Comment:* r percent(sd(as.matrix(fin_return_backtest) %\* % omega) \*
+sqrt(perio))
+
 I am going to improve these results thanks to a more robust statistical
 approach.
 
