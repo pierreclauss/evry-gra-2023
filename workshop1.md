@@ -303,13 +303,10 @@ barplot(as.numeric(omega), col = 'black')
 ![](workshop1_files/figure-gfm/gmv_empirical-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
-sample is equal to 9%.
+sample is equal to 9.26%.
 
 The realised volatility of the portfolio observed on the backtest sample
-is equal to 17%.
-
-*Comment:* r percent(sd(as.matrix(fin_return_backtest) %\* % omega) \*
-sqrt(perio))
+is equal to 17.32%.
 
 I am going to improve these results thanks to a more robust statistical
 approach.
@@ -361,10 +358,10 @@ barplot(as.numeric(omega1), col = 'black')
 ![](workshop1_files/figure-gfm/gmv_1factor-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
-sample is equal to 6%.
+sample is equal to 6.28%.
 
 The realised volatility of the portfolio observed on the backtest sample
-is equal to 12%.
+is equal to 11.83%.
 
 #### 2.2.3 GMV portfolio with factorial modelling (3 factors)
 
@@ -387,10 +384,10 @@ the diagonal residual covariance matrix determined for each asset
 ![](workshop1_files/figure-gfm/gmv_3factors-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
-sample is equal to 10%.
+sample is equal to 9.51%.
 
 The realised volatility of the portfolio observed on the backtest sample
-is equal to 14%.
+is equal to 13.64%.
 
 ## To conclude the first workshop
 
