@@ -172,8 +172,9 @@ Litterman (BL) in 1990 and 1992 to estimate
 ![\mu](https://latex.codecogs.com/png.latex?%5Cmu "\mu"): see [the
 following
 paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=334304) to
-demystify this approach and also pages 315-316 of [this book
-chapter](https://faculty.fuqua.duke.edu/~mbrandt/papers/published/portreview.pdf).
+demystify this approach and also pages 315-316 of the chapter *Portfolio
+Choice Problems* written by M. Brandt in 2010 in the Handbook of
+Financial Econometrics.
 
 I then construct a multi-assets allocation with equity, bond and
 monetary assets (null weight for this last asset in the TP).

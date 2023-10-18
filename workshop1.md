@@ -319,11 +319,9 @@ Because of its high dimensionality, the inversion of the matrix could be
 noisy. Then I reduce the dimensionality to one systematic factor (and 3
 factors in the next section). This modelling is inspired by W. Sharpe
 who was the first to propose a factor structure of the covariance matrix
-with the [Single-Index
-Model](https://www.theinquisitiveinvestor.org/blog/wp-content/uploads/2020/07/A-Simplified-Model-for-Portfolio-Analysis-William-Sharpe.pdf)
-in 1963. To go further see pages 304-305 of the [chapter written by M.
-Brandt in 2010 in the Handbook of Financial
-Econometrics](https://faculty.fuqua.duke.edu/~mbrandt/papers/published/portreview.pdf).
+with the *Single-Index Model* in 1963. To go further see pages 304-305
+of the chapter *Portfolio Choice Problems* written by M. Brandt in 2010
+in the Handbook of Financial Econometrics.
 
 I can write the estimator (remind my course for the proof) with the
 following formula:
