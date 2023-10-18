@@ -344,6 +344,20 @@ the diagonal residual covariance matrix determined for each asset
 
 ![\text{Var}\left(\varepsilon_i\right) = \text{Var}\left(r_i\right) - \phi\_{1i}^2\lambda_1](https://latex.codecogs.com/png.latex?%5Ctext%7BVar%7D%5Cleft%28%5Cvarepsilon_i%5Cright%29%20%3D%20%5Ctext%7BVar%7D%5Cleft%28r_i%5Cright%29%20-%20%5Cphi_%7B1i%7D%5E2%5Clambda_1 "\text{Var}\left(\varepsilon_i\right) = \text{Var}\left(r_i\right) - \phi_{1i}^2\lambda_1")
 
+``` r
+valp <- eigen(Sigma)$values
+vecp <- eigen(Sigma)$vectors
+vp1 <- vecp[, 1]
+lambda1 <- valp[1]
+varepsilon1 <- diag(Sigma) - vp1 ^ 2 * lambda1
+Sigma_epsilon1 <- diag(varepsilon1, n, n)
+Sigma1 <- (lambda1 * vp1 %*% t(vp1) + Sigma_epsilon1)
+C1 <- t(e) %*% solve(Sigma1) %*% e
+sigmag1 <- sqrt(1 / C1)
+omega1 <- 1 / as.numeric(C1) * solve(Sigma1) %*% e
+barplot(as.numeric(omega1), col = 'black')
+```
+
 ![](workshop1_files/figure-gfm/gmv_1factor-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
