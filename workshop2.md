@@ -228,7 +228,7 @@ barplot(as.numeric(omega), col = 'black', names.arg = barnames, ylim = c(0,1))
 ![](workshop2_files/figure-gfm/TP-1.png)<!-- -->
 
 The realised return observed on the backtest sample of the portfolio
-constructed on the learning sample is equal to 5%.
+constructed on the learning sample is equal to 5.12%.
 
 I am going to improve this result thanks to a more robust statistical
 approach integrating economic predictions in the allocation.
@@ -277,15 +277,33 @@ Q[3] <- 0.05 # negative view for US Corporate bonds index
 tau <- 0.9
 ```
 
+``` r
+# Mixed estimation of returns
+Omega <- diag(diag(Sigma), n, n)
+mu_mixed <-
+  solve(solve(tau * Sigma) + solve(Omega)) %*% (solve(tau * Sigma) %*% mu +
+                                                  solve(Omega) %*% Q)
+
+# Tactical allocation with views directly
+A_Q <- t(e) %*% solve(Sigma) %*% Q
+omega_Q <- 1 / as.numeric(A_Q) * solve(Sigma) %*% Q
+# barplot(as.numeric(omega_Q), col = 'black', names.arg = barnames, ylim = c(0,1))
+
+# Tactical allocation with mixed estimation
+A_mixed <- t(e) %*% solve(Sigma) %*% mu_mixed
+omega_mixed <- 1 / as.numeric(A_mixed) * solve(Sigma) %*% mu_mixed
+barplot(as.numeric(omega_mixed), col = 'black', names.arg = barnames, ylim = c(0,1))
+```
+
 ![](workshop2_files/figure-gfm/BL-1.png)<!-- -->
 
 The realised return observed on the backtest sample of the BL portfolio
-constructed on the learning sample is equal to 6%.
+constructed on the learning sample is equal to 6.42%.
 
 I can compare it to the portfolio constructed directly with views and
 without uncertainty on the predictions. The realised return observed on
 the backtest sample of this portfolio constructed on the learning sample
-is equal to 9%. BL approach mitigates the return of this portfolio by
+is equal to 8.68%. BL approach mitigates the return of this portfolio by
 integrating uncertainty and then less confidence in the views.
 
 ## To conclude the second workshop
