@@ -210,6 +210,21 @@ Then, I can plug-in these estimates on the formula of the TP to obtain
 unbiased estimators of its weights. I assume that
 ![r_f=0\\](https://latex.codecogs.com/png.latex?r_f%3D0%5C%25 "r_f=0\%").
 
+``` r
+n <- ncol(fin_return_learning)
+T <- nrow(fin_return_learning)
+e <- rep(1, n)
+perio <- 12
+rf <- 0
+
+mu <- colMeans(fin_return_learning) * perio - rf
+Sigma <- cov(fin_return_learning) * (T - 1) / (T - n - 2) * perio
+A <- t(e) %*% solve(Sigma) %*% mu
+omega <- 1 / as.numeric(A) * solve(Sigma) %*% mu
+barnames <- c('France Equity', 'BRIC Equity', 'US Corporate Bond')
+barplot(as.numeric(omega), col = 'black', names.arg = barnames, ylim = c(0,1))
+```
+
 ![](workshop2_files/figure-gfm/TP-1.png)<!-- -->
 
 The realised return observed on the backtest sample of the portfolio
