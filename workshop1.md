@@ -379,6 +379,18 @@ the diagonal residual covariance matrix determined for each asset
 
 ![\text{Var}\left(\varepsilon_i\right) = \text{Var}\left(r_i\right) - \phi\_{1i}^2\lambda_1 - \phi\_{2i}^2\lambda_2 - \phi\_{3i}^2\lambda_3](https://latex.codecogs.com/png.latex?%5Ctext%7BVar%7D%5Cleft%28%5Cvarepsilon_i%5Cright%29%20%3D%20%5Ctext%7BVar%7D%5Cleft%28r_i%5Cright%29%20-%20%5Cphi_%7B1i%7D%5E2%5Clambda_1%20-%20%5Cphi_%7B2i%7D%5E2%5Clambda_2%20-%20%5Cphi_%7B3i%7D%5E2%5Clambda_3 "\text{Var}\left(\varepsilon_i\right) = \text{Var}\left(r_i\right) - \phi_{1i}^2\lambda_1 - \phi_{2i}^2\lambda_2 - \phi_{3i}^2\lambda_3")
 
+``` r
+vp3 <- cbind(vecp[, 1], vecp[, 2], vecp[, 3])
+lambda3 <- diag(c(valp[1], valp[2], valp[3]), 3, 3)
+varepsilon3 <- diag(Sigma) - vp3 ^ 2 %*% diag(lambda3)
+Sigma_epsilon3 <- diag(as.numeric(varepsilon3), n, n)
+Sigma3 <- (vp3 %*% lambda3 %*% t(vp3) + Sigma_epsilon3)
+C3 <- t(e) %*% solve(Sigma3) %*% e
+sigmag3 <- sqrt(1 / C3)
+omega3 <- 1 / as.numeric(C3) * solve(Sigma3) %*% e
+barplot(as.numeric(omega3), col = 'black')
+```
+
 ![](workshop1_files/figure-gfm/gmv_3factors-1.png)<!-- -->
 
 The anticipated volatility of the portfolio constructed on the learning
